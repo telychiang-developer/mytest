@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<SyncConfig ApiUrl="http://192.168.211.97:8080/middleware-server/api/data/queryDocPathData" LastUpdated="2020-02-27T12:41:37.2640025+08:00">
+  <SyncPdfs>
+    <SyncPdf DocKey="visaagreement" DocName="VISA金融卡約定條款" Url="https://wwwfile.megabank.com.tw/upload/F9B0/VISA金融卡約定條款.pdf" LocalName="2.pdf" />
+    <SyncPdf DocKey="ecodeagreement" DocName="線上STM-行動e碼約定條款" Url="https://wwwfile.megabank.com.tw/upload/F9B0/e碼寶貝行動e碼約定書.pdf" LocalName="5.pdf" />
+    <SyncPdf DocKey="opaccagreement" DocName="線上STM存款開戶總約定書" Url="https://wwwfile.megabank.com.tw/upload/F9B0/存款開戶總約定書(條款)-中文版.pdf" LocalName="1.pdf" />
+    <SyncPdf DocKey="cardagreement" DocName="線上STM金融卡及金融卡轉帳約定書" Url="https://wwwfile.megabank.com.tw/upload/F9B0/金融卡約定書條款.pdf" LocalName="3.pdf" />
+    <SyncPdf DocKey="webankagreement" DocName="線上STM個人網路銀行業務服務契約條款" Url="https://wwwfile.megabank.com.tw/upload/F9B0/個人網路銀行業務申請書暨服務契約條款.pdf" LocalName="4.pdf" />
+  </SyncPdfs>
+</SyncConfig>

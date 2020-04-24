@@ -1,0 +1,38 @@
+﻿<Page x:Class="iSTMC.PageView.Timeout"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:local="clr-namespace:iSTMC.PageView"
+      Title="Timeout">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml" />
+                <ResourceDictionary Source="ResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid x:Name="MainGrid">
+            <Grid x:Name="InnerGrid" TextBlock.FontSize="60" Style="{StaticResource Aside}" Height="1024" Width="1280">
+                <StackPanel VerticalAlignment="Center">
+                    <Image Stretch="Fill" StretchDirection="Both"
+                       Source="pack://siteoforigin:,,,/Resource/Images/logo.png"
+                       Height="90" Width="425" />
+                    <fa:ImageAwesome Icon="TimesCircle" Foreground="#B2FFFFFF" Stretch="Fill" StretchDirection="Both" Width="80" Height="80" Margin="0,20,0,10" />
+                    <TextBlock Text="交易逾時" FontFamily="微軟正黑體" TextWrapping="Wrap" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0,20,0,0" />
+                    <TextBlock Text="很抱歉，目前無法正確處理您的交易請求。請重試或結束交易" FontFamily="微軟正黑體" TextWrapping="Wrap" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0,20,0,0" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
+                        <Button x:Name="btnCancel" Click="btnCancel_Click"  Style="{StaticResource RoundButton}" Height="50" Width="158" FontSize="20" Margin="0,0,30,0" Background="#CCC" Foreground="Black">結束交易</Button>
+                        <Button x:Name="btnRetry" Click="btnRetry_Click"  Style="{StaticResource RoundButton}" Height="50" Width="158" FontSize="20" Margin="0,0,0,0">重試</Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>

@@ -1,0 +1,211 @@
+﻿<Page x:Class="iSTMC.PageView.Page0045"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:iSTMC.PageView"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      Title="Page0045">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml" />
+                <ResourceDictionary Source="ResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid x:Name="MainGrid">
+            <Grid x:Name="InnerGrid" TextBlock.FontSize="40" Style="{StaticResource PageBody2}" Height="1024" Width="1280">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="256" />
+                    <ColumnDefinition Width="1024" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Style="{StaticResource Aside}">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="pack://siteoforigin:,,,/Resource/Images/logo.png" Stretch="Fill"  StretchDirection="Both" Width="214.8" Height="50" Margin="0,25,0,20" />
+                        <Grid>
+                            <Border BorderBrush="White" BorderThickness="1.5">
+                                <Rectangle Fill="White" Opacity="0.3" />
+                            </Border>
+                            <TextBlock Text="1. 開戶認證" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <TextBlock Text="掃描身分證" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <TextBlock Text="核對資料" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <TextBlock Text="確認條款" Foreground="#be9a3c" FontWeight="ExtraBold" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="2. 上傳證件" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="3. 資料填寫" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="4. 開戶設定" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+
+                <Button x:Name="btnHome" Click="btnHome_Click" Style="{StaticResource SlightRoundButton}" Margin="0,910,0,30" Height="60" Width="158" FontSize="20" Background="White" Opacity="0.7" Foreground="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="TimesCircle" Foreground="#710e35" Stretch="Fill" StretchDirection="Both" Width="24" Height="24" Margin="0,0,10,0" />
+                        <TextBlock Text="取消開戶" FontWeight="Medium" FontSize="24" Foreground="#710e35" />
+                    </StackPanel>
+                </Button>
+
+                <Grid x:Name="grdForm" Grid.Column="1"  Margin="0,0,0,0">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Foreground="Black" Text="稅務身份聲明確認" FontSize="32" TextAlignment="Center" Margin="0,10,0,0" />
+                        <Border Margin="0,15,0,0">
+                            <ScrollViewer x:Name="scrollViewer" Background="White" Width="940" Height="800" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" 
+                                      PanningMode="VerticalOnly" ManipulationBoundaryFeedback="ScrollViewer_ManipulationBoundaryFeedback">
+                                <StackPanel>
+                                    <TextBlock Foreground="#dc3545" FontSize="20" TextAlignment="Center" Margin="0,20,0,0"
+                                           Text="◆ 兆豐國際商業銀行 客戶自我證明表-個人 ◆" />
+                                    <TextBlock Foreground="#dc3545" FontSize="14" TextAlignment="Center" Margin="0,0,0,0"
+                                           Text="Self Certification Form- Individual" />
+                                    <Border Background="#f5c6cb" Margin="25,20,25,0" CornerRadius="4">
+                                        <TextBlock Foreground="#721c24" FontSize="17" TextAlignment="Left" Margin="18,8,8,8"
+                                           Text="自我證明簡介 Introduction" />
+                                    </Border>
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="15,18,0,0" Width="890" TextWrapping="Wrap" LineHeight="25" 
+                                           Text="為遵守法令及因應國際趨勢，爰依我國「金融機構執行共同申報及盡職審查作業辦法(CRS)」規定，請　您據實回覆下列詢問事項，並提供相關身分證明文件。" />
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="-2,18,0,0" Width="870" TextWrapping="Wrap" LineHeight="25" TextAlignment="Justify"
+                                           Text="To comply with domestic regulations and in response to international trends, our Company is required to collect related information in accordance with regulations of Common Reporting Standard (CRS) in Taiwan. Please answer the following questions and provide the information truthfully and with related documentary evidence." />
+                                    <TextBlock Foreground="#333" FontSize="14" Margin="0,18,0,0" Width="870" TextWrapping="Wrap" LineHeight="20" 
+                                           Text="※請注意本文件非稅務和法務建議，本文件檢附之附錄僅針對本文件使用之名詞為說明以供您參考，本行亦無法提供稅務或法務之意見。如果您對本文件有任何稅務或法務上之問題，請諮詢稅務、法律和/或其他相關專業人士。" />
+                                    <TextBlock Foreground="#333" FontSize="14" Margin="0,18,0,0" Width="870" TextWrapping="Wrap" LineHeight="20" TextAlignment="Justify"
+                                           Text="Please note that this form is not for tax and legal advice. The appendix is a list of terms and their corresponding definition used in this document and for your reference only. Our Company is not allowed to give any tax or legal advice. If you have any questions regarding the tax and legal issues in this document, please consult with tax, legal, or other areas of professionals." />
+                                    <Border Background="#f5c6cb" Margin="25,20,25,0" CornerRadius="4">
+                                        <TextBlock Foreground="#721c24" FontSize="17" TextAlignment="Left" Margin="18,8,8,8"
+                                           Text="Part 1 – 帳戶持有人基本資料 Identification of Individual Account Holder" />
+                                    </Border>
+
+                                    <Border BorderBrush="Silver" BorderThickness="0.5,0.5,0.5,0.5" Margin="25,20,25,0" Background="#f8f9fa">
+                                        <TextBlock Foreground="#333" FontSize="15.5" FontWeight="Normal" TextAlignment="Center" Text="帳戶持有人姓名 Name of Account Holder" Margin="2,15,2,15" />
+                                    </Border>
+                                    <Border BorderBrush="Silver" BorderThickness="0.5,0,0.5,0.5" Background="#f2f2f2" Margin="25,0,25,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="12*" />
+                                                <ColumnDefinition Width="15*" />
+                                                <ColumnDefinition Width="12*" />
+                                                <ColumnDefinition Width="12*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="0" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock Foreground="#333" FontSize="15.5" TextAlignment="Left" Text="姓名 Name：" Margin="2" Width="201" />
+                                            </Border>
+                                            <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock FontFamily="{StaticResource BttFont}" Foreground="#007bff" FontSize="15.5" TextAlignment="Left" Text="{Binding FullName, Mode=OneWay}" Margin="2" Width="252" TextWrapping="Wrap" />
+                                            </Border>
+                                            <Border Grid.Column="2" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock Foreground="#333" FontSize="15.5" TextAlignment="Left" Text="國籍 Nationality：" Margin="2" />
+                                            </Border>
+                                            <Border Grid.Column="3" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock Foreground="#007bff" FontSize="15.5" TextAlignment="Left" Text="{Binding Nationality, Mode=OneWay}" Margin="2" />
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="Silver" BorderThickness="0.5,0,0.5,0.5" Background="Transparent" Margin="25,0,25,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="12*" />
+                                                <ColumnDefinition Width="15*" />
+                                                <ColumnDefinition Width="12*" />
+                                                <ColumnDefinition Width="12*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="0" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock Foreground="#333" FontSize="15.5" TextAlignment="Left" Text="身分證字號 ID Number：" Margin="2" />
+                                            </Border>
+                                            <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock Foreground="#007bff" FontSize="15.5" TextAlignment="Left" Text="{Binding PID, Mode=OneWay}" Margin="2" />
+                                            </Border>
+                                            <Border Grid.Column="2" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock Foreground="#333" FontSize="15.5" TextAlignment="Left" Text="出生日期 Date of Birth：" Margin="2" />
+                                            </Border>
+                                            <Border Grid.Column="3" BorderBrush="Silver" BorderThickness="0,0,0.5,0">
+                                                <TextBlock Foreground="#007bff" FontSize="15.5" TextAlignment="Left" Text="{Binding DateOfBirth, Mode=OneWay}" Margin="2" />
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#f2f2f2" BorderThickness="0.5,0,0.5,0.5" Background="#f2f2f2" Margin="25,0,25,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="12*" />
+                                                <ColumnDefinition Width="15*" />
+                                                <ColumnDefinition Width="12*" />
+                                                <ColumnDefinition Width="12*" />
+                                            </Grid.ColumnDefinitions>
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="Silver" BorderThickness="0.5,0,0.5,0.5" Background="#f8f9fa" Margin="25,-1,25,1">
+                                        <TextBlock Foreground="#333" FontSize="15.5" FontWeight="Normal" TextAlignment="Center" Text="稅務居住者身分 Tax Residency" Margin="2,15,2,15" />
+                                    </Border>
+                                    <Border BorderBrush="Silver" BorderThickness="0,0,0.5,0.5" Background="#f2f2f2" Margin="25,-1,25,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="27.05*" />
+                                                <ColumnDefinition Width="24*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="0"  BorderBrush="Silver" BorderThickness="0.5,0,0.5,0.5">
+                                                <TextBlock Foreground="#868686" FontSize="15.5" TextAlignment="Left" Text="稅務居住者之國家/地區Country/Jurisdiction of tax residence：" Margin="2" />
+                                            </Border>
+                                            <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="0,0,0,0.5" >
+                                                <TextBlock Foreground="#007bff" FontSize="15.5" TextAlignment="Left" Text="{Binding Nationality, Mode=OneWay}" Margin="2" />
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="Silver" BorderThickness="0,0,0.5,0.5" Background="Transparent" Margin="25,-1,25,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="27.05*" />
+                                                <ColumnDefinition Width="24*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="0"  BorderBrush="Silver" BorderThickness="0.5,0.5,0.5,0.5">
+                                                <TextBlock Foreground="#868686" FontSize="15.5" TextAlignment="Left" Text="稅籍編號TIN：" Margin="2" />
+                                            </Border>
+                                            <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="0,0.5,0,0.5" >
+                                                <TextBlock Foreground="#007bff" FontSize="15.5" TextAlignment="Left" Text="{Binding PID, Mode=OneWay}" Margin="2" />
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+
+                                    <Border Background="#f5c6cb" Margin="25,20,25,0" CornerRadius="4">
+                                        <TextBlock Foreground="#721c24" FontSize="17" TextAlignment="Left" Margin="18,8,8,8"
+                                           Text="Part 2 – 聲明及簽署 Declaration and Signature" />
+                                    </Border>
+
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="13,18,0,0" Width="890" TextWrapping="Wrap" LineHeight="25" 
+                                           Text="本人證明，就與本文件所有相關的帳戶，本人是帳戶持有人。" />
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="0,10,0,0" Width="870" TextWrapping="Wrap" LineHeight="25" TextAlignment="Justify"
+                                           Text="I certify that I am Account Holder of all the account(s) to which this form relates." />
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="0,10,0,0" Width="880" TextWrapping="Wrap" LineHeight="25" 
+                                           Text="本人已審閱、瞭解且同意如下事項： 貴行為(1)相關服務及執行、公司內部控制及稽核業務之需要及其他經營合於營業登記項目或組織章程所定之業務，(2)遵循「金融機構執行共同申報及盡職審查作業辦法(CRS)」而蒐集本人的個人資料，並備存本文件所載資料。所蒐集之資料僅會於前開蒐集目的存續期間及依法令規定要求期間內，以合於法令規定之利用方式，提供貴行、國內稅務機關、及因以上目的作業需要之第三方處理及利用，國內稅務機關亦可能依據國際相關規定從而把資料轉交到本人的居住國家或地區的相關主管機關。(您可以至本行各分支機構或利用本行客戶服務專線 (0800-016-168)查詢、請求閱覽、製給複製本、更正、補充、停止蒐集處理利用或刪除您的個人資料，惟本行依法令規定或因執行業務所必須，得不依您的請求處理。若您未能提供相關個人資料時，本行可能因此遲延處理或無法接受申請。)" />
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="15,10,25,0" Width="870" TextWrapping="Wrap" LineHeight="20" TextAlignment="Justify"
+                                           Text="I understand and agree that the information supplied by me is covered by the full provisions of the terms and conditions governing the Account Holder's relationship with your Bank setting out how your Bank may use and share the information, including: (1) The related services and execution, the requirement of your Bank's internal control, auditing, and other operations are integrated into the business defined in the business registration or the articles of association. (2) Collecting and keeping record of personal information to comply with the 'Regulations Governing the Implementation of the Common Standard on Reporting and Due Diligence for Financial Institutions (CRS)'. The information collected will only be kept in record and provided to the domestic tax authorities, the Internal Revenue Service (IRS), or third-party to process and utilize required for the above-mentioned purposes within the duration in accordance with statutory requirements. The domestic tax authorities may also transfer the information to the country or jurisdiction of my residence in or to the relevant competent authority in accordance with relevant international regulations. (You may go to our branches or use our customer service line (xxxx-xxx-xxx) to inquire, view, copy, correct, provide supplements of, stop collecting, use or delete your personal information. However, we will not be able to process your request if the regulations or in the course of business execution indicate otherwise. If you fail to provide relevant personal information, we may have to delay processing or not be allowed to accept your application.)" />
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="0,10,0,0" Width="890" TextWrapping="Wrap" LineHeight="25" 
+                                           Text="本人聲明就本人所知所信，本文件內所填報的所有資料和聲明均屬真實、正確、完備且為最新資訊；若與　貴行既存資料不相符，本人會說明原因、提供相應的證明文據，且同意以本份自我證明文件之內容更新既存資料並作為提供主管機關資料之依據，並承諾，倘情況有所變更，以致影響本文件之資訊，或導致本文件所載的資料不正確，本人會於狀態變更之30日內通知　貴行並提交一份已適當更新的自我證明。" />
+                                    <TextBlock Foreground="#333" FontSize="17" Margin="15,10,25,0" Width="880" TextWrapping="Wrap" LineHeight="20" TextAlignment="Justify"
+                                           Text="I declare that all statements made in this certification are, to the best of my knowledge and belief, correct and complete. I undertake to advise your Bank within 30 days of any change in circumstances which affects the tax residency status of the individual identified in Part 1 of this form or causes the information contained herein to become incorrect or incomplete, and the provide your Bank with a suitably updated Self-certification within 30 days of such change in circumstances." />
+                                    <TextBlock Foreground="#333" FontSize="14" Margin="0,18,0,0" Width="890" TextWrapping="Wrap" LineHeight="20" 
+                                           Text="※警告: 如任何人在作出自我證明時，故意誤導或有虛假不正確之陳述者，將可能依國內外相關法令承擔相關責任。" />
+                                    <TextBlock Foreground="#333" FontSize="14" Margin="0,18,0,0" Width="890" TextWrapping="Wrap" LineHeight="20" TextAlignment="Justify"
+                                           Text="Warning: Any person who deliberately misleads or has false and incorrect statements when he/she makes self-certification, will be liable under relevant domestic and international laws and regulations." />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                        <Button x:Name="btnConfirm" Click="btnConfirm_Click" Style="{StaticResource RoundButton}" Height="50" Width="108" FontSize="20" Margin="0,15,0,0">確定</Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>

@@ -1,0 +1,296 @@
+﻿<Page x:Class="iSTMC.PageView.Page0170"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:iSTMC.PageView"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:ctl="clr-namespace:iSTMC.Common;assembly=iSTMC.Common"
+      xmlns:ctrl="clr-namespace:DimwaveAVFControl;assembly=DimwaveAVFControl"  
+      xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
+      Title="Page0170">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml" />
+                <ResourceDictionary Source="ResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <local:BoolToHiddenConverter x:Key="BoolToHiddenConverter" />
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid x:Name="MainGrid">
+            <Grid x:Name="InnerGrid" TextBlock.FontSize="40" Style="{StaticResource PageBody2}" Height="1024" Width="1280">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="256" />
+                    <ColumnDefinition Width="1024" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Style="{StaticResource Aside}">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="pack://siteoforigin:,,,/Resource/Images/logo.png" Stretch="Fill"  StretchDirection="Both" Width="214.8" Height="50" Margin="0,25,0,20" />
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="1. 開戶認證" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="2. 上傳證件" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid>
+                            <Border BorderBrush="White" BorderThickness="1.5">
+                                <Rectangle Fill="White" Opacity="0.3" />
+                            </Border>
+                            <TextBlock Text="3. 資料填寫" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <TextBlock Text="個人資料" Foreground="#be9a3c" FontWeight="ExtraBold" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <TextBlock Text="申請項目" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <TextBlock Text="確認資料" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <!--<TextBlock Text="文件簽署" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />-->
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="4. 開戶設定" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+
+                <Button x:Name="btnHome" Click="btnHome_Click" Style="{StaticResource SlightRoundButton}" Margin="0,910,0,30" Height="60" Width="158" FontSize="20" Background="White" Opacity="0.7" Foreground="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="TimesCircle" Foreground="#710e35" Stretch="Fill" StretchDirection="Both" Width="24" Height="24" Margin="0,0,10,0" />
+                        <TextBlock Text="取消開戶" FontWeight="Medium" FontSize="24" Foreground="#710e35" />
+                    </StackPanel>
+                </Button>
+
+                <Grid Grid.Column="1" >
+                    <TextBlock Text="◆ 填寫個人資料 ◆" FontSize="32" Margin="0,110,0,870" TextAlignment="Center" />
+                    <StackPanel Orientation="Vertical"  Margin="0,0,10,0" VerticalAlignment="Center" >
+                        <Grid x:Name="grdForm">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="22*" />
+                                <ColumnDefinition Width="121*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="10*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,15"><Run Foreground="Red">*</Run>戶籍地址：</TextBlock>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" Margin="0,0,0,15">
+                                <!--<TextBox IsReadOnly="True" Background="White" Text="{Binding HouseZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="125" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="郵遞區號" Padding="5" MaxLength="5"
+                                         ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="435" ctrl:StyleHelper.TopPosition="285"/>-->
+                                <TextBox IsReadOnly="True" Text="{Binding HouseZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="115" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="郵遞區號" Padding="5" MaxLength="5"
+                                         />
+                                <Grid Margin="20,0,0,0">
+                                    <ComboBox x:Name="cboHouseCity" FontSize="20" Foreground="Black" Style="{StaticResource ComboBoxFlatStyle}" Width="175" 
+                                              ItemsSource="{Binding AddressDropdown.Data.Cities, Mode=OneWay}" DisplayMemberPath="Name" SelectedValuePath="Name" 
+                                              SelectedValue="{Binding HouseCityName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                    <TextBlock Text="- 請選擇 -" IsHitTestVisible="False" FontSize="20" Opacity="0.6" VerticalAlignment="Center" Margin="15,2,0,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=cboHouseCity,Path=SelectedItem}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Margin="20,0,0,0">
+                                    <ComboBox x:Name="cboHouseTown" FontSize="20" Foreground="Black" Style="{StaticResource ComboBoxFlatStyle}" Width="175" 
+                                          ItemsSource="{Binding HouseAddressTowns, Mode=OneWay}" DisplayMemberPath="Name" SelectedValuePath="Name" 
+                                          SelectedValue="{Binding HouseTownName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                    <TextBlock Text="- 請選擇 -" IsHitTestVisible="False" FontSize="20" Opacity="0.6" VerticalAlignment="Center" Margin="15,2,0,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=cboHouseTown,Path=SelectedItem}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>                                    
+                                </Grid>
+                                <TextBox Text="{Binding HouseLi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="150" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="村里" Padding="5" Margin="20,0,0,0" MaxLength="6"
+                                        FontFamily="{StaticResource BttFont}" ctrl:StyleHelper.KeyBoardType="AVFKeyboard" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="182" ctrl:StyleHelper.TopPosition="254" />
+                                <TextBox Text="{Binding HouseLin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="鄰" Padding="5" Margin="20,0,0,0" MaxLength="8"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="890" ctrl:StyleHelper.TopPosition="200" />
+                                <TextBlock Text="鄰" FontSize="20" VerticalAlignment="Center" Margin="8,0,0,0" />
+                            </StackPanel>
+                            <TextBox Text="{Binding HouseAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" Grid.Row="1" 
+                                     FontFamily="{StaticResource BttFont}" Width="853" HorizontalAlignment="Left" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="" Padding="5" Margin="0,0,0,0" MaxLength="60"
+                                        ctrl:StyleHelper.KeyBoardType="AVFKeyboard" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="182" ctrl:StyleHelper.TopPosition="254"/>
+                            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,5,10,10"><Run Foreground="Red">*</Run>通訊地址：</TextBlock>
+                            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,10">
+                                <StackPanel.LayoutTransform>
+                                    <ScaleTransform ScaleX ="3.2" ScaleY ="2.6"/>
+                                </StackPanel.LayoutTransform>
+                                <CheckBox IsChecked="{Binding IsSameWithHouse, Mode=TwoWay}" Height="15" HorizontalAlignment="Left" Margin="0,0,0,0" Background="#CCC">
+                                    <TextBlock FontSize="6" Foreground="Black" Text="同戶籍地址" Margin="-2.5,3,0,0">
+                                        <TextBlock.LayoutTransform>
+                                            <ScaleTransform ScaleX ="1.0" ScaleY ="1.3"/>
+                                        </TextBlock.LayoutTransform>
+                                    </TextBlock>
+                                </CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Margin="0,0,0,10">
+                                <!--<TextBox IsReadOnly="True" Background="White" Text="{Binding CommZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="125" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="郵遞區號" Padding="5" MaxLength="5"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="435" ctrl:StyleHelper.TopPosition="435"/>-->
+                                <TextBox IsReadOnly="True" Text="{Binding CommZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="115" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="郵遞區號" Padding="5" MaxLength="5"
+                                        />
+                                <Grid Margin="20,0,0,0">
+                                    <ComboBox x:Name="cboCommCity" FontSize="20" Foreground="Black" Style="{StaticResource ComboBoxFlatStyle}" Width="175" IsEnabled="{Binding IsNotSameWithHouse, Mode=OneWay}"
+                                              ItemsSource="{Binding AddressDropdown.Data.Cities, Mode=OneWay}" DisplayMemberPath="Name" SelectedValuePath="Name" 
+                                              SelectedValue="{Binding CommCityName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                    <TextBlock Text="- 請選擇 -" IsHitTestVisible="False" FontSize="20" Opacity="0.6" VerticalAlignment="Center" Margin="15,2,0,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=cboCommCity,Path=SelectedItem}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Margin="20,0,0,0">
+                                    <ComboBox x:Name="cboCommTown" FontSize="20" Foreground="Black" Style="{StaticResource ComboBoxFlatStyle}" Width="175" IsEnabled="{Binding IsNotSameWithHouse, Mode=OneWay}"
+                                          ItemsSource="{Binding CommAddressTowns, Mode=OneWay}" DisplayMemberPath="Name" SelectedValuePath="Name" 
+                                          SelectedValue="{Binding CommTownName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                    <TextBlock Text="- 請選擇 -" IsHitTestVisible="False" FontSize="20" Opacity="0.6" VerticalAlignment="Center" Margin="15,2,0,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=cboCommTown,Path=SelectedItem}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <TextBox Text="{Binding CommLi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="150" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="村里" Padding="5" Margin="20,0,0,0" MaxLength="6"
+                                        FontFamily="{StaticResource BttFont}" ctrl:StyleHelper.KeyBoardType="AVFKeyboard" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="182" ctrl:StyleHelper.TopPosition="403" IsEnabled="{Binding IsNotSameWithHouse, Mode=OneWay}"/>
+                                <TextBox Text="{Binding CommLin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="鄰" Padding="5" Margin="20,0,0,0" MaxLength="8"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="890" ctrl:StyleHelper.TopPosition="350" IsEnabled="{Binding IsNotSameWithHouse, Mode=OneWay}"/>
+                                <TextBlock Text="鄰" FontSize="20" VerticalAlignment="Center" Margin="8,0,0,0" />
+                            </StackPanel>
+                            <TextBox Text="{Binding CommAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" Grid.Row="4" Width="853" HorizontalAlignment="Left" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="" Padding="5" Margin="0,5,0,15" MaxLength="60"
+                                        FontFamily="{StaticResource BttFont}" ctrl:StyleHelper.KeyBoardType="AVFKeyboard" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="182" ctrl:StyleHelper.TopPosition="403" IsEnabled="{Binding IsNotSameWithHouse, Mode=OneWay}"/>
+                            <!--<TextBlock Grid.Column="0" Grid.Row="5" Text="英文地址：" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,15" />
+                            <TextBox Grid.Column="1" Grid.Row="5" Width="793" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="" Padding="5" Margin="20,0,0,15"
+                                        ctrl:StyleHelper.KeyBoardType="EmailKeyboard" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="108" ctrl:StyleHelper.TopPosition="523"/>-->
+                            <TextBlock Grid.Column="0" Grid.Row="6" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,15"><Run Foreground="Red">*</Run>住家電話：</TextBlock>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6" Margin="0,0,0,15">
+                                <!--<TextBox IsReadOnly="True" Background="White" Text="{Binding HomeTelCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="2,0,20,0" MaxLength="3"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="434" ctrl:StyleHelper.TopPosition="82"/>-->
+                                <TextBox IsReadOnly="True" Text="{Binding HomeTelCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="0,0,20,0" MaxLength="3"
+                                        />
+                                <TextBox Text="{Binding HomeTelArea, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="區碼" Padding="5" Margin="0,0,20,0" MaxLength="4"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="500" ctrl:StyleHelper.TopPosition="110"/>
+                                <TextBox Text="{Binding HomeTelNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="185" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="" Padding="5" MaxLength="12"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="600" ctrl:StyleHelper.TopPosition="110"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="0" Grid.Row="7" Text="公司電話：" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,15"  />
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" Margin="0,0,0,15">
+                                <!--<TextBox IsReadOnly="True" Background="White" Text="{Binding OfficeTelCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="2,0,20,0" MaxLength="3"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="434" ctrl:StyleHelper.TopPosition="135"/>-->
+                                <TextBox IsReadOnly="True" Text="{Binding OfficeTelCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="0,0,20,0" MaxLength="3"
+                                        />
+                                <TextBox Text="{Binding OfficeTelArea, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="區碼" Padding="5" Margin="0,0,20,0" MaxLength="4"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="500" ctrl:StyleHelper.TopPosition="165"/>
+                                <TextBox Text="{Binding OfficeTelNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="185" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="" Padding="5" Margin="0,0,20,0" MaxLength="12"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="600" ctrl:StyleHelper.TopPosition="165"/>
+                                <TextBox Text="{Binding OfficeExtNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="分機" Padding="5" Margin="0,0,20,0" MaxLength="5"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="805" ctrl:StyleHelper.TopPosition="165"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="0" Grid.Row="8" Text="傳真號碼：" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,15" />
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="8" Margin="0,0,0,15">
+                                <!--<TextBox IsReadOnly="True" Background="White" Text="{Binding FaxTelCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="2,0,20,0" MaxLength="3"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="434" ctrl:StyleHelper.TopPosition="185"/>-->
+                                <TextBox IsReadOnly="True" Text="{Binding FaxTelCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="0,0,20,0" MaxLength="3"
+                                        />
+                                <TextBox Text="{Binding FaxTelArea, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="區碼" Padding="5" Margin="0,0,20,0" MaxLength="4"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="500" ctrl:StyleHelper.TopPosition="220"/>
+                                <TextBox Text="{Binding FaxTelNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="185" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="" Padding="5" Margin="0,0,20,0" MaxLength="12"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="600" ctrl:StyleHelper.TopPosition="220"/>
+                                <!--<TextBox IsReadOnly="True" Background="White" Text="{Binding MobileCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="0,0,20,0" MaxLength="3"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="804" ctrl:StyleHelper.TopPosition="185"/>-->
+                            </StackPanel>
+                            <TextBlock Grid.Column="0" Grid.Row="9" Text="行動電話：" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,15" />
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="9" Margin="0,0,0,15">
+                                <TextBox IsReadOnly="True" Text="{Binding MobileCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="國碼" Padding="5" Margin="0,0,20,0" MaxLength="3"
+                                        />
+                                <local:STMMaskedTextBox Text="{Binding MobileNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="187.5" FontSize="20" ctl:TextBoxAssistant.PlaceHolder=""
+                                                    Padding="5" Margin="0,0,0,0" Mask="0000-0000000000" HidePromptOnLeave="True"
+                                        ctrl:StyleHelper.KeyBoardType="NumberInput" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="500" ctrl:StyleHelper.TopPosition="270"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="0" Grid.Row="10" Text="電子信箱：" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,15" />
+                            <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" Grid.Row="10" Width="853" HorizontalAlignment="Left" FontSize="20" ctl:TextBoxAssistant.PlaceHolder="" Padding="5" Margin="0,0,0,15" MaxLength="50"
+                                        ctrl:StyleHelper.KeyBoardType="EmailKeyboard" ctrl:StyleHelper.Place="Manual" ctrl:StyleHelper.LeftPosition="145" ctrl:StyleHelper.TopPosition="325"/>
+                            <TextBlock Grid.Column="0" Grid.Row="11" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,5,10,10"><Run Foreground="Red">*</Run>對 帳 單：</TextBlock>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="11" Margin="0,0,0,5">
+                                <Grid>
+                                    <ComboBox x:Name="cboStatement" FontSize="20" Foreground="Black" Style="{StaticResource ComboBoxFlatStyle}" Width="350" HorizontalAlignment="Left"
+                                          ItemsSource="{Binding StatementDropdown.Data.Statements, Mode=OneWay}" DisplayMemberPath="Name" SelectedValuePath="Code" 
+                                          IsEnabled="{Binding StatementEnabled, Mode=OneWay}"    
+                                          SelectedValue="{Binding StatementCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                    <TextBlock Text="- 請選擇-" IsHitTestVisible="False" FontSize="20" Opacity="0.6" VerticalAlignment="Center" Margin="15,1,0,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=cboStatement,Path=SelectedItem}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </StackPanel>
+                            <TextBlock Grid.Column ="0" Grid.Row="12" Text="對帳單地址：" FontSize="20" TextAlignment="Right" VerticalAlignment="Center" Margin="0,-2,10,0" Visibility="{Binding ShowStatementAddr, Mode=OneWay, Converter= {StaticResource BoolToHiddenConverter}}" />
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="12" Margin="0,10,0,10">
+                                <RadioButton IsChecked="{Binding StatementAddrByHouse, Mode=TwoWay}" Style="{StaticResource RadioButtonStyle}" Height="30" Margin="0,0,13,0"
+                                             Visibility="{Binding ShowStatementAddr, Mode=OneWay, Converter={StaticResource BoolToHiddenConverter}}">
+                                    <TextBlock FontSize="20" Foreground="Black" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,7,0,0" LineHeight="30" Text="同戶籍地址" />
+                                </RadioButton>
+                                <RadioButton IsChecked="{Binding StatementAddrByComm, Mode=TwoWay}" Style="{StaticResource RadioButtonStyle}" Height="30" Margin="22,0,13,0" 
+                                             Visibility="{Binding ShowStatementAddr, Mode=OneWay, Converter={StaticResource BoolToHiddenConverter}}">
+                                    <TextBlock FontSize="20" Foreground="Black" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,7,0,0" LineHeight="30" Text="同通訊地址" />
+                                </RadioButton>
+                            </StackPanel>
+                        </Grid>
+                        <Button x:Name="btnConfirm" Click="btnConfirm_Click" Style="{StaticResource RoundButton}" Height="50" Width="108" FontSize="20" Margin="0,30,0,0">下一頁</Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <ctrl:AVFKeyboard RootObject="{Binding ElementName=MainGrid}" Visibility="Collapsed"/>
+            <ctrl:NumberKeyboard RootObject="{Binding ElementName=MainGrid}" Name="numberKey"  Visibility="Collapsed"/>
+            <!--<ctrl:PWDKeyboard RootObject="{Binding ElementName=MainGrid}" Name="pwdKey" Visibility="Collapsed"/>-->
+            <ctrl:EmailKeyboard RootObject="{Binding ElementName=MainGrid}" Name="emailKey" Visibility="Collapsed"/>
+        </Grid>
+    </Viewbox>
+</Page>

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="iSTMC.PageView.ValidationErrorDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:iSTMC.PageView"
+             mc:Ignorable="d" Width="750"
+             HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary.xaml" />
+                <ResourceDictionary Source="Style.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <local:TimeoutToStringConverter x:Key="TimeoutToStringConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="5" />
+    </UserControl.Effect>
+    
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44*"/>
+            <RowDefinition Height="163*"/>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="White" BorderThickness="0,0,0,0.75" Background="#f0ad4e">
+            <TextBlock Text="欄位驗證失敗" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+        </Border>
+
+        <Border BorderBrush="White" BorderThickness="0,0,0,0.75" Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="您輸入的資料未通過驗證，請重新確認! 錯誤訊息如下:" FontSize="22" Foreground="Black" Margin="0,0,0,10" />
+                    <ListBox ItemsSource="{Binding Errors}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontSize="22" Foreground="DarkRed" Margin="5" TextAlignment="Left" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+            <Button x:Name="btnClose" Content="關閉訊息"  Width="95" Height="35" Click="btnClose_Click" Background="#d9534f" Foreground="White" FontSize="18" />
+        </StackPanel>
+    </Grid>
+</UserControl>

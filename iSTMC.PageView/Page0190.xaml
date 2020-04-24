@@ -1,0 +1,273 @@
+﻿<Page x:Class="iSTMC.PageView.Page0190"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:iSTMC.PageView"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      Title="Page0190">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml" />
+                <ResourceDictionary Source="ResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <ControlTemplate x:Key="ScrollViewerControlTemplate" TargetType="{x:Type ScrollViewer}">
+                <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle x:Name="Corner" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Column="1" Grid.Row="1"/>
+                    <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Margin="{TemplateBinding Padding}" Grid.Column="0" Grid.Row="0" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False"/>
+                    <ScrollBar x:Name="PART_VerticalScrollBar" Cursor="Arrow" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Grid.Column="1" Grid.Row="0" AutomationProperties.AutomationId="VerticalScrollBar" ViewportSize="{TemplateBinding ViewportHeight}" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" Width="35"/>
+                    <ScrollBar x:Name="PART_HorizontalScrollBar" Cursor="Arrow" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Grid.Column="0" Grid.Row="1" AutomationProperties.AutomationId="HorizontalScrollBar" Orientation="Horizontal" ViewportSize="{TemplateBinding ViewportWidth}" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                </Grid>
+            </ControlTemplate>
+
+            <Style x:Key="AlternatingItemStyle" TargetType="{x:Type ListBoxItem}">
+                <Style.Triggers>
+                    <!-- setting up triggers for alternate background colors -->
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                        <Setter Property="Background" Value="#e2e2e2"></Setter>
+                    </Trigger>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+                <!-- setting row height here -->
+                <!--<Setter Property="Height" Value="40" />-->
+            </Style>
+
+            <local:MobileDashConverter x:Key="MobileDashConverter" />
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid x:Name="MainGrid">
+            <Grid x:Name="InnerGrid" TextBlock.FontSize="40" Style="{StaticResource PageBody2}" Height="1024" Width="1280">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="256" />
+                    <ColumnDefinition Width="1024" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Style="{StaticResource Aside}">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="pack://siteoforigin:,,,/Resource/Images/logo.png" Stretch="Fill"  StretchDirection="Both" Width="214.8" Height="50" Margin="0,25,0,20" />
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="1. 開戶認證" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="2. 上傳證件" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid>
+                            <Border BorderBrush="White" BorderThickness="1.5">
+                                <Rectangle Fill="White" Opacity="0.3" />
+                            </Border>
+                            <TextBlock Text="3. 資料填寫" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <TextBlock Text="個人資料" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <TextBlock Text="申請項目" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <TextBlock Text="確認資料" Foreground="#be9a3c" FontWeight="ExtraBold" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="4. 開戶設定" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+
+                <Button x:Name="btnHome" Click="btnHome_Click" Style="{StaticResource SlightRoundButton}" Margin="0,910,0,30" Height="60" Width="158" FontSize="20" Background="White" Opacity="0.7" Foreground="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="TimesCircle" Foreground="#710e35" Stretch="Fill" StretchDirection="Both" Width="24" Height="24" Margin="0,0,10,0" />
+                        <TextBlock Text="取消開戶" FontWeight="Medium" FontSize="24" Foreground="#710e35" />
+                    </StackPanel>
+                </Button>
+
+                <Grid Grid.Column="1">
+                    <TextBlock Text="◆ 填寫個人資料 ◆" FontSize="32" Margin="0,110,0,870" TextAlignment="Center" />
+                    <StackPanel Orientation="Vertical" Margin="30,150,30,0" VerticalAlignment="Center" >
+                        <Border Margin="0,10,0,10">
+                            <ScrollViewer x:Name="scrollViewer" Background="Transparent" Height="630" Width="961" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Template="{StaticResource ScrollViewerControlTemplate}"
+                                      ManipulationBoundaryFeedback="ScrollViewer_ManipulationBoundaryFeedback" PanningMode="VerticalOnly" PreviewMouseLeftButtonDown="ScrollViewer_OnPreviewMouseLeftButtonDown">
+                                <ListBox Background="Transparent" ItemContainerStyle="{StaticResource AlternatingItemStyle}" AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="戶籍地址：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock FontFamily="{StaticResource BttFont}" Foreground="Black" FontSize="20" Text="{Binding HouseFullAddress, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715" />
+                                        </StackPanel>                                
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="通訊地址：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock FontFamily="{StaticResource BttFont}" Foreground="Black" FontSize="20" Text="{Binding CommFullAddress, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715" />
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="住家電話：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding HomeFullTel, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="公司電話：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding OfficeFullTel, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="行動電話：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding MobileTel, Mode=OneWay, Converter={StaticResource MobileDashConverter}}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="{Binding eMobileTelColor, Mode=OneWay}" FontSize="20" Text="行動e碼電話：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="{Binding eMobileTelColor, Mode=OneWay}" FontSize="20" Text="{Binding eMobileTel, Mode=OneWay, Converter={StaticResource MobileDashConverter}}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="傳真號碼：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding FaxTel, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="電子信箱：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding EmailAddr, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="對帳單：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding Statement, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="對帳單地址：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock FontFamily="{StaticResource BttFont}" Foreground="Black" FontSize="20" Text="{Binding StatementAddr, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715" />
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="就業情形：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding MajorJobDesc, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="服務機構：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock FontFamily="{StaticResource BttFont}" Foreground="Black" FontSize="20" Text="{Binding CompanyTitle, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715" />
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="機構性質：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding CompanyTypeName, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="職稱：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding JobTitle, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="行業主分類：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding MajorClassTitle, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="行業子分類：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding SubClassTitle, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="年收入：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding AnnualIncomeDesc, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="預期月平均交易金額：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding MonthlyAvgDesc, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="開戶目的：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock FontFamily="{StaticResource BttFont}" Foreground="Black" FontSize="20" Text="{Binding PurposeDesc, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="資金來源：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock FontFamily="{StaticResource BttFont}" Foreground="Black" FontSize="20" Text="{Binding FundSourceDesc, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="財富累積來源：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock FontFamily="{StaticResource BttFont}" Foreground="Black" FontSize="20" Text="{Binding WealthySourceDesc, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="印鑑參照帳號：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding StampRefAccNo, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="申請金融卡：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding ApplyATMCardDesc, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="申請網路銀行服務：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding ApplyEBankDesc, Mode=OneWay}" TextWrapping="Wrap" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="申請聯行代收付：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding ApplyUniPaymentDesc, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="20" Text="共同行銷條款：" Padding="8" Margin="10,0,0,0" Width="220"/>
+                                            <TextBlock Foreground="Black" FontSize="20" Text="{Binding PromotionTermDesc, Mode=OneWay}" Padding="8" Margin="0,0,0,0" Width="715"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                </ListBox>
+                            </ScrollViewer>
+                        </Border>
+
+                        <TextBlock Text="重要提醒：親愛的客戶您好，若提供帳戶供詐騙集團使用，可能構成刑法第339條詐欺取財罪及洗錢防制法第14條洗錢罪之幫助犯，最重得處七年以下有期徒刑，併科新臺幣500萬元以下罰金，切勿以身試法。" Foreground="#ad1e5a" FontSize="24" Margin="0,20,0,0" TextAlignment="Left" TextWrapping="Wrap" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+                            <Button x:Name="btnModify" Click="btnModify_Click" Style="{StaticResource RoundButton}" Height="50" Width="108" FontSize="20" Margin="0,10,10,0">修改</Button>
+                            <Button x:Name="btnConfirm" Click="btnConfirm_Click" Style="{StaticResource RoundButton}" Height="50" Width="108" FontSize="20" Margin="0,10,0,0">確定</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>

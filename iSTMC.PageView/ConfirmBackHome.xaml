@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="iSTMC.PageView.ConfirmBackHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:iSTMC.PageView"
+             mc:Ignorable="d" Height="230" Width="760">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary.xaml" />
+                <ResourceDictionary Source="Style.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <local:TimeoutToStringConverter x:Key="TimeoutToStringConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="5" />
+    </UserControl.Effect>
+    
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="123*"/>
+            <RowDefinition Height="69*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderThickness="0,0,0,0.75" BorderBrush="#ccc" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="確認訊息" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,600,0" />
+                <TextBlock Text="{Binding CountDown, Mode=OneWay}" FontSize="32" FontWeight="ExtraBold" Foreground="Red" VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+
+        <Border BorderThickness="0,0,0,0.75" BorderBrush="#ccc" Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="一旦取消開戶，您的身分證影像、人像照片、以及個人資訊將不會被留存；確定要取消開戶?" TextAlignment="Left" FontSize="22" Foreground="Black" Width="730" TextWrapping="Wrap" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0">
+            <Button x:Name="btnCancel" Content="確定"  Width="65" Height="35" Click="btnClose_Click" Margin="0,0,8,0" Background="Gray" Foreground="White" FontSize="18" />
+            <Button x:Name="btnClose" Content="關閉視窗"  Width="95" Height="35" Click="btnCancel_Click" Background="#deba60" Foreground="White" FontSize="18" />
+        </StackPanel>
+    </Grid>
+</UserControl>

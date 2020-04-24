@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64487802-A16D-45C9-B0C7-4864B1D8117F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>iSTMC.PageView</RootNamespace>
+    <AssemblyName>iSTMC.PageView</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdornedControl">
+      <HintPath>..\Lib\AdornedControl.dll</HintPath>
+    </Reference>
+    <Reference Include="AVFDLL, Version=4.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NSKiosk\bin\Debug\Library\AVFDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="DimwaveAVFControl">
+      <HintPath>..\iSTMC\bin\Debug\Library\DimwaveAVFControl.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="iSTMC.Common">
+      <HintPath>..\iSTMC\bin\Debug\Library\iSTMC.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="iSTMC.ImageOCRProtocol">
+      <HintPath>..\iSTMC\bin\Debug\Business\Protocols\iSTMC.ImageOCRProtocol.dll</HintPath>
+    </Reference>
+    <Reference Include="iSTMC.Kernel">
+      <HintPath>..\iSTMC\bin\Debug\Library\iSTMC.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.3\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfChosenControl">
+      <HintPath>..\iSTMC\bin\Debug\Library\WpfChosenControl.dll</HintPath>
+    </Reference>
+    <Reference Include="XamlAnimatedGif, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XamlAnimatedGif.1.2.0\lib\net45\XamlAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ArraySymbols.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cancel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0011.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0062.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0065.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0055.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0155.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0172.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0177.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0186.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0187.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0195.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0200.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0300.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0025.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Timeout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0047.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0290.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0287.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0285.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0282.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0280.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0240.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0210.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0190.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0185.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0175.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0170.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0160.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0150.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0140.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0130.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0120.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0110.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0100.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0090.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0080.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0070.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0045.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0040.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0030.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0020.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0015.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page0012.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ValidationErrorDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Error.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OutOfService.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConfirmBackHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Offline.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ScalingModal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StartUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cancel.xaml.cs">
+      <DependentUpon>Cancel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0011.xaml.cs">
+      <DependentUpon>Page0011.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0062.xaml.cs">
+      <DependentUpon>Page0062.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0065.xaml.cs">
+      <DependentUpon>Page0065.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0055.xaml.cs">
+      <DependentUpon>Page0055.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0155.xaml.cs">
+      <DependentUpon>Page0155.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0172.xaml.cs">
+      <DependentUpon>Page0172.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0177.xaml.cs">
+      <DependentUpon>Page0177.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0186.xaml.cs">
+      <DependentUpon>Page0186.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0187.xaml.cs">
+      <DependentUpon>Page0187.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0195.xaml.cs">
+      <DependentUpon>Page0195.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0200.xaml.cs">
+      <DependentUpon>Page0200.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0300.xaml.cs">
+      <DependentUpon>Page0300.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0025.xaml.cs">
+      <DependentUpon>Page0025.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MobileInputMaskBehavior.cs" />
+    <Compile Include="STMMaskedTextBox.cs" />
+    <Compile Include="Timeout.xaml.cs">
+      <DependentUpon>Timeout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0047.xaml.cs">
+      <DependentUpon>Page0047.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0290.xaml.cs">
+      <DependentUpon>Page0290.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0287.xaml.cs">
+      <DependentUpon>Page0287.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0285.xaml.cs">
+      <DependentUpon>Page0285.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0282.xaml.cs">
+      <DependentUpon>Page0282.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0280.xaml.cs">
+      <DependentUpon>Page0280.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0240.xaml.cs">
+      <DependentUpon>Page0240.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0210.xaml.cs">
+      <DependentUpon>Page0210.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0190.xaml.cs">
+      <DependentUpon>Page0190.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0185.xaml.cs">
+      <DependentUpon>Page0185.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0175.xaml.cs">
+      <DependentUpon>Page0175.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0170.xaml.cs">
+      <DependentUpon>Page0170.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0160.xaml.cs">
+      <DependentUpon>Page0160.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0150.xaml.cs">
+      <DependentUpon>Page0150.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0140.xaml.cs">
+      <DependentUpon>Page0140.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0130.xaml.cs">
+      <DependentUpon>Page0130.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0120.xaml.cs">
+      <DependentUpon>Page0120.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0110.xaml.cs">
+      <DependentUpon>Page0110.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0100.xaml.cs">
+      <DependentUpon>Page0100.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0090.xaml.cs">
+      <DependentUpon>Page0090.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0080.xaml.cs">
+      <DependentUpon>Page0080.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0070.xaml.cs">
+      <DependentUpon>Page0070.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0045.xaml.cs">
+      <DependentUpon>Page0045.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0040.xaml.cs">
+      <DependentUpon>Page0040.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0030.xaml.cs">
+      <DependentUpon>Page0030.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0020.xaml.cs">
+      <DependentUpon>Page0020.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0015.xaml.cs">
+      <DependentUpon>Page0015.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page0012.xaml.cs">
+      <DependentUpon>Page0012.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabTip.cs" />
+    <Compile Include="ValidationErrorDialog.xaml.cs">
+      <DependentUpon>ValidationErrorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter.cs" />
+    <Compile Include="EnterKeyTraversal.cs" />
+    <Compile Include="InputIMESwitch.cs" />
+    <Compile Include="KioskDataCacheKey.cs" />
+    <Compile Include="Error.xaml.cs">
+      <DependentUpon>Error.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OutOfService.xaml.cs">
+      <DependentUpon>OutOfService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageViewModel.cs" />
+    <Compile Include="ConfirmBackHome.xaml.cs">
+      <DependentUpon>ConfirmBackHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageViewUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Offline.xaml.cs">
+      <DependentUpon>Offline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyChangeNotification.cs" />
+    <Compile Include="ScalingModal.xaml.cs">
+      <DependentUpon>ScalingModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp.xaml.cs">
+      <DependentUpon>StartUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TWDateValidAttribute.cs" />
+    <Compile Include="TWPIDValidAttribute.cs" />
+    <Compile Include="ValidationUtils.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iSTMC.Packmodels\iSTMC.Packmodels.csproj">
+      <Project>{db07e437-126d-4b5f-8dc1-7734fea23874}</Project>
+      <Name>iSTMC.Packmodels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)"  "$(SolutionDir)\iSTMC\bin\Debug\Resource\PageViews"
+Copy "$(ProjectDir)\Resource\Images\*.*"  "$(SolutionDir)\iSTMC\bin\Debug\Resource\Images"
+Copy "$(ProjectDir)\Resource\Sounds\*.*"  "$(SolutionDir)\iSTMC\bin\Debug\Resource\Sounds"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

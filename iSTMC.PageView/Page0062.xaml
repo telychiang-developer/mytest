@@ -1,0 +1,86 @@
+﻿<Page x:Class="iSTMC.PageView.Page0062"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+      xmlns:local="clr-namespace:iSTMC.PageView"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      Title="Page0062">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml" />
+                <ResourceDictionary Source="ResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid x:Name="MainGrid">
+            <Grid x:Name="InnerGrid" TextBlock.FontSize="40" Style="{StaticResource PageBody2}" Height="1024" Width="1280">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="256" />
+                    <ColumnDefinition Width="1024" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Style="{StaticResource Aside}">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="pack://siteoforigin:,,,/Resource/Images/logo.png" Stretch="Fill"  StretchDirection="Both" Width="214.8" Height="50" Margin="0,25,0,20" />
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="1. 開戶認證" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid>
+                            <Border BorderBrush="White" BorderThickness="1.5">
+                                <Rectangle Fill="White" Opacity="0.3" />
+                            </Border>
+                            <TextBlock Text="2. 上傳證件" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <TextBlock Text="證件掃描" Foreground="#be9a3c" FontWeight="ExtraBold" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <TextBlock Text="人像拍攝" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />
+                        <!--<TextBlock Text="核對資料" Foreground="White" Opacity="0.8" FontSize="20" TextAlignment="Center" Padding="0,10,0,10" />-->
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="3. 資料填寫" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Border Background="White" Opacity="0.1">
+                            </Border>
+                            <TextBlock Text="4. 開戶設定" Foreground="White" FontSize="24" TextAlignment="Center" Padding="0,15,0,15" />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+
+                <!--<Button x:Name="btnHome" Click="btnHome_Click" Style="{StaticResource SlightRoundButton}" Margin="0,910,0,30" Height="60" Width="158" FontSize="20" Background="White" Opacity="0.7" Foreground="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="TimesCircle" Foreground="#710e35" Stretch="Fill" StretchDirection="Both" Width="24" Height="24" Margin="0,0,10,0" />
+                        <TextBlock Text="取消開戶" FontWeight="Medium" FontSize="24" Foreground="#710e35" />
+                    </StackPanel>
+                </Button>-->
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image Stretch="Fill" StretchDirection="Both" 
+                               gif:AnimationBehavior.AutoStart="True" 
+                               gif:AnimationBehavior.AnimateInDesignMode="True"
+                               gif:AnimationBehavior.SourceUri="pack://siteoforigin:,,,/Resource/Images/IDF.gif"
+                               gif:AnimationBehavior.RepeatBehavior="Forever" Height="300" Width="300" />
+                        <TextBlock FontSize="32" Margin="0,25,0,0" TextAlignment="Center" TextWrapping="Wrap" Width="320">請將身分證<Run Foreground="Red">正面朝下</Run>，放入掃描閘門內。</TextBlock>
+                    </StackPanel>
+                    <Image Grid.Column="1" Stretch="Fill"  StretchDirection="Both" Width="350" Height="450" HorizontalAlignment="Left"
+                           gif:AnimationBehavior.AutoStart="True" 
+                           gif:AnimationBehavior.AnimateInDesignMode="True"
+                           gif:AnimationBehavior.SourceUri="pack://siteoforigin:,,,/Resource/Images/scanner_0.gif"
+                           gif:AnimationBehavior.RepeatBehavior="Forever" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>
